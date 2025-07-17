@@ -28,3 +28,7 @@ submit50==3.2.0
 termcolor==1.1.0
 urllib3==2.5.0
 virtualenv==20.27.1
+Flask==2.0.1
+gunicorn==20.1.0
+flask-session==0.4.0
+cs50==8.0.1
