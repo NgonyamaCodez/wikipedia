@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: wiki-project  # Change this to your preferred name
+    name: wiki-project
     runtime: python
-    buildCommand: "pip install -r requirements.txt && python manage.py migrate"
-    startCommand: "gunicorn wiki:app"
+    buildCommand: "pip install --user -r requirements.txt && python manage.py migrate"
+    startCommand: "gunicorn manage:app"
