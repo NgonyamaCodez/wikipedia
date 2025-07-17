@@ -1,0 +1,30 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search Results
+{% endblock %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'encyclopedia/css/styles.css' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% endblock %}
+
+{% block body %}
+    <h1>Search Results</h1>
+    
+    {% if matches %}
+        {% if has_exact_match %}
+            <p>Redirecting to exact match...</p>
+        {% else %}
+            <p>Results for "{{ query }}":</p>
+            <ul>
+                {% for entry in matches %}
+                    <li><a href="{% url 'entry' entry %}">{{ entry }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% else %}
+        <p>No results found for "{{ query }}"</p>
+    {% endif %}
+{% endblock %}

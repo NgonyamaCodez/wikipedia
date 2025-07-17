@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}{% endblock %}</title>
+  {% block head %}
+    <link rel="stylesheet" href="{% static 'encyclopedia/css/index.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% endblock %}
+</head>
+<body>
+  <div class="row">
+    <aside class="sidebar col-l›g-2 col-md-3">
+      <h1 class="logo"><a href="{% url 'index' %}">WIK<span style="color: #6366f1">O</span>DA</h1>
+      </a><p class="description"> C O D I NG   W I K I P E D I A</p>
+      <form action="{% url 'search' %}" method="get">
+        <input class="search" type="text" name="q" placeholder="Search Encyclopedia">
+        <button type="submit" class="search-btn">Search</button>
+      </form>
+      <nav class="nav-btn">
+        <div><a href="{% url 'index' %}">Home</a></div>
+        <div><a href="{% url 'create' %}">Create New Page</a></div>
+        <div><a href="{% url 'random_page' %}">Random Page</a></div>
+      </nav>
+      {% block nav %}{% endblock %}
+    </aside>
+
+    <main class="main col-lg-10 col-md-9">
+      {% block body %}{% endblock %}
+    </main>
+
+    <footer> &copy; Ngonyama Codez | 2025 </footer>
+  </div>
+</body>
+</html>

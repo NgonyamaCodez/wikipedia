@@ -1,0 +1,18 @@
+{% extends "encyclopedia/layout.html" %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'encyclopedia/css/styles.css' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% endblock %}
+{% block title %}
+  Error - Wiki
+{% endblock %}
+
+{% block body %}
+  <div class="error-message">
+    <h1>Page Not Found</h1>
+    <p>{{ message }}</p>
+    <a href="{% url 'index' %}" class="home-link">Return to Homepage</a>
+  </div>
+{% endblock %}

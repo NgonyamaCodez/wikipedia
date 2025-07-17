@@ -1,0 +1,21 @@
+{% extends "encyclopedia/layout.html" %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'encyclopedia/css/styles.css' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% endblock %}
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+{% block body %}
+  <div class="entry-content">
+    <h1>{{ title }}</h1>
+    <div class="content">
+      {{ content|safe }}
+    </div>
+    <a href="{% url 'edit' title %}" class="btn btn-edit mt-3">Edit Page</a>
+  </div>
+{% endblock %}
